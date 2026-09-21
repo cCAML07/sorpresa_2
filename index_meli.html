@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Meli 💛</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:100vw;height:100vh;overflow:hidden;font-family:"Segoe UI",sans-serif;background:radial-gradient(circle at 50% 100%,#183c31 0%,transparent 40%),linear-gradient(to bottom,#050817,#081527,#071b22);color:white}
+.inicio{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:25px;background:radial-gradient(circle at center,#18283d,#050817 70%);transition:opacity 1.3s ease,visibility 1.3s ease}
+.inicio.ocultar{opacity:0;visibility:hidden;pointer-events:none}
+.inicio .mini{color:#ffd84d;font-size:13px;letter-spacing:4px;text-transform:uppercase;margin-bottom:18px}
+.inicio h1{font-size:clamp(42px,9vw,75px);font-weight:300;margin-bottom:15px}
+.inicio h1 span{color:#ffd84d}
+.inicio p{opacity:.7;margin-bottom:35px;font-size:17px}
+button{border:none;padding:16px 32px;border-radius:50px;cursor:pointer;font-size:16px;font-weight:500;color:#1c1c1c;background:linear-gradient(135deg,#ffe76b,#ffbd24);box-shadow:0 10px 40px rgba(255,205,50,.25);transition:.3s}
+button:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 15px 50px rgba(255,205,50,.4)}
+.estrella{position:absolute;width:3px;height:3px;border-radius:50%;background:white;opacity:.4;animation:brillar 2s infinite alternate}
+@keyframes brillar{to{opacity:1;transform:scale(2)}}
+.jardin{position:absolute;bottom:0;width:100%;height:72%}
+.flor{position:absolute;bottom:0;transform-origin:bottom;transform:scaleY(0)}
+.flor.crecer{animation:crecer 3s ease forwards}
+@keyframes crecer{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.tallo{position:absolute;bottom:0;left:50%;width:6px;height:230px;transform:translateX(-50%);border-radius:20px;background:linear-gradient(to right,#27683f,#52a35f,#225738);box-shadow:0 0 8px rgba(55,145,82,.15)}
+.hoja{position:absolute;width:65px;height:30px;background:linear-gradient(135deg,#4ba15d,#23623e)}
+.hoja.izq{bottom:80px;left:-55px;border-radius:100% 0 100% 0;transform:rotate(25deg)}
+.hoja.der{bottom:130px;left:0;border-radius:0 100% 0 100%;transform:rotate(-25deg)}
+.cabeza{position:absolute;left:50%;bottom:215px;width:120px;height:120px;transform:translateX(-50%);animation:moverFlor 4s ease-in-out infinite alternate}
+@keyframes moverFlor{from{transform:translateX(-50%) rotate(-2deg)}to{transform:translateX(-50%) rotate(3deg)}}
+.petalo{position:absolute;left:42px;top:5px;width:38px;height:62px;border-radius:60% 60% 45% 45%;transform-origin:19px 55px;background:radial-gradient(circle at 50% 20%,#fff89a,#ffd633 50%,#f0a800);box-shadow:0 0 15px rgba(255,210,40,.25)}
+.petalo:nth-child(1){transform:rotate(0deg)}.petalo:nth-child(2){transform:rotate(45deg)}.petalo:nth-child(3){transform:rotate(90deg)}.petalo:nth-child(4){transform:rotate(135deg)}.petalo:nth-child(5){transform:rotate(180deg)}.petalo:nth-child(6){transform:rotate(225deg)}.petalo:nth-child(7){transform:rotate(270deg)}.petalo:nth-child(8){transform:rotate(315deg)}
+.centro{position:absolute;z-index:5;left:50%;top:50%;width:48px;height:48px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#744019 10%,#4d260f 45%,#251207 80%);box-shadow:inset 0 0 10px #160a03,0 0 15px rgba(255,194,35,.35)}
+.mensaje{position:fixed;z-index:30;top:6%;left:50%;width:min(90%,650px);transform:translateX(-50%) translateY(-20px);text-align:center;opacity:0;transition:2s ease;pointer-events:none}
+.mensaje.mostrar{opacity:1;transform:translateX(-50%) translateY(0)}
+.mensaje h2{color:#ffe466;font-size:clamp(30px,6vw,48px);font-weight:400;margin-bottom:18px;text-shadow:0 0 30px rgba(255,220,70,.25)}
+.mensaje p{font-size:clamp(15px,3vw,18px);line-height:1.8;color:rgba(255,255,255,.88)}
+.mensaje strong{color:#fff2a0}
+.caida{position:fixed;z-index:20;top:-40px;width:16px;height:25px;border-radius:80% 20% 80% 20%;background:linear-gradient(135deg,#fff17b,#ffc928);animation:caer linear forwards}
+@keyframes caer{to{transform:translate(100px,110vh) rotate(720deg);opacity:.2}}
+.firma{display:block;margin-top:20px;color:#ffe466;font-size:13px;letter-spacing:2px}
+.corazon{display:inline-block;animation:latido 1.3s infinite}
+@keyframes latido{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@media(max-width:600px){.jardin{transform:scale(.82);transform-origin:bottom center;width:120%;left:-10%}.mensaje{top:4%}.mensaje p{line-height:1.55}.firma{margin-top:12px}}
+</style>
+</head>
+<body>
+<section class="inicio" id="inicio">
+<div class="mini">UNA PEQUEÑA SORPRESA</div>
+<h1><span>Para Meli</span> <span class="corazon">💛</span></h1>
+<p>No es un ramo común...</p>
+<button onclick="comenzar()">Ver mi sorpresa 🌻</button>
+</section>
+
+<div class="mensaje" id="mensaje">
+<h2>Para Meli <span class="corazon">💛</span></h2>
+<p>
+Quizás no pueda entregarte estas flores en persona, pero encontré otra forma de hacerlas llegar hasta ti.
+<br><br>
+Cada una lleva un poquito de cariño, una sonrisa y un pensamiento bonito para ti.
+<br><br>
+Porque hay personas que, sin darse cuenta, hacen nuestros días un poquito más bonitos.
+<br><br>
+<strong>Y tú, Meli, eres una de ellas. 🌻💛</strong>
+</p>
+<span class="firma">FLORES AMARILLAS PARA MELI ✨</span>
+</div>
+
+<div class="jardin" id="jardin"></div>
+
+<script>
+for(let i=0;i<80;i++){
+ const e=document.createElement("div");
+ e.className="estrella";
+ e.style.left=Math.random()*100+"%";
+ e.style.top=Math.random()*75+"%";
+ e.style.animationDelay=Math.random()*3+"s";
+ document.body.appendChild(e);
+}
+
+function crearFlor(x,retraso){
+ const f=document.createElement("div");
+ f.className="flor";
+ f.style.left=x+"%";
+ f.style.animationDelay=retraso+"s";
+ f.innerHTML=`<div class="tallo"><div class="hoja izq"></div><div class="hoja der"></div></div>
+ <div class="cabeza"><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="petalo"></div><div class="centro"></div></div>`;
+ document.getElementById("jardin").appendChild(f);
+ return f;
+}
+
+const flores=[
+ crearFlor(10,.2),crearFlor(23,.6),crearFlor(37,1),
+ crearFlor(50,1.3),crearFlor(63,1.7),crearFlor(77,2),crearFlor(90,2.4)
+];
+
+function comenzar(){
+ document.getElementById("inicio").classList.add("ocultar");
+ flores.forEach(f=>f.classList.add("crecer"));
+ setTimeout(lluviaPetalos,2500);
+ setTimeout(()=>document.getElementById("mensaje").classList.add("mostrar"),4000);
+}
+
+function lluviaPetalos(){
+ setInterval(()=>{
+  const p=document.createElement("div");
+  p.className="caida";
+  p.style.left=Math.random()*100+"%";
+  p.style.animationDuration=(5+Math.random()*5)+"s";
+  p.style.opacity=.3+Math.random()*.6;
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),10000);
+ },550);
+}
+</script>
+</body>
+</html>
